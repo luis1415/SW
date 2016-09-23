@@ -1,5 +1,6 @@
 <?php
     class Image_ {
+        private $id_image;
         private $photo;
         private $description;
         private $title;
@@ -8,14 +9,16 @@
 
         /**
          * Image_ constructor.
+         * @param $id_image
          * @param $photo
          * @param $description
          * @param $title
          * @param $comments
          * @param $id_album
          */
-        public function __construct($photo, $description, $title, $comments, $id_album)
+        public function __construct($id_image, $photo, $description, $title, $comments, $id_album)
         {
+            $this->id_image = $id_image;
             $this->photo = $photo;
             $this->description = $description;
             $this->title = $title;
@@ -23,8 +26,23 @@
             $this->id_album = $id_album;
         }
 
+        /**
+         * @return mixed
+         */
+        public function getIdImage()
+        {
+            return $this->id_image;
+        }
 
         /**
+         * @param mixed $id_image
+         */
+        public function setIdImage($id_image)
+        {
+            $this->id_image = $id_image;
+        }
+
+                /**
          * @return mixed
          */
         public function getPhoto()
