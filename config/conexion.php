@@ -1,11 +1,11 @@
 <?php
 
-$dsn = 'mysql:dbname=testdb;host=127.0.0.1';
-$user = 'root';
-$pass = '';
-
-try {
-    $gbd = new PDO($dsn , $user , $pass);
-} catch(PDOException $e){
-    echo "Fallo la conexión".$e->getMessage();
+try{
+    $user = 'root';
+    $pass = '';
+    $conn = new PDO('mysql:host=localhost;dbname=bdAlbum', $user , $pass );
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}catch(PDOException $e){
+    echo "ERROR: " . $e->getMessage();
 }
+
