@@ -1,14 +1,14 @@
 <?php
 
 class User{
-    private $id;
+    private $id_user;
     private $id_person;
     private $nickname;
     private $avatar;
 
-    public function __construct($id, $id_person, $nickname, $avatar)
+    public function __construct($id_user, $id_person, $nickname, $avatar)
     {
-        $this->id = $id;
+        $this->id_user = $id_user;
         $this->id_person = $id_person;
         $this->nickname = $nickname;
         $this->avatar = $avatar;
@@ -62,9 +62,24 @@ class User{
         $this->avatar = $avatar;
     }
 
-    public function setId($id)
+    /**
+     * @return mixed
+     */
+    public function getIdUser()
     {
-        $this->id = $id;
+        return $this->id_user;
     }
+
+    /**
+     * @param mixed $id_user
+     */
+    public function setIdUser($id_user)
+    {
+        $this->id_user = $id_user;
+    }
+
+
+
+
 
 }
