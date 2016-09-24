@@ -20,6 +20,7 @@
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <link href="../stylesheets/css/signin.css" rel="stylesheet">
     <![endif]-->
 </head>
 <body>
@@ -53,7 +54,7 @@
     <!-- /.container -->
 </nav>
 
-<div class="container">
+<div class="form-signin">
 <form method="post" action="../controllers/album.php">
 
     <div class="arrow-up"></div>
