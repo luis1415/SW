@@ -26,6 +26,8 @@ include "../dao/ImageDAO.php";
         }
     }
 
+    /**
+
     if(isset($_GET["find"])){
         if(isset($_SESSION["current_user"])){
             $row = $albumDAO->find($_SESSION["current_user"],$_GET["find"]);
@@ -35,16 +37,25 @@ include "../dao/ImageDAO.php";
             header("location: user.php?login");
         }
     }
+     *
+     * */
 
 
 
     if(isset($_POST["insert"])){
-        $name = $_POST["name"];
+        $title = $_POST["title"];
         $description = $_POST["description"];
-        $id_user = $_SESSION["current_user"];
-        $album = new Album($name,$description,$id_user);
-        $albumDAO->insert($album);
-        header("location: album.php?data");
+        $target_dir = "uploads/";
+        $target_file = $target_dir . basename($_FILES["photo"]["name"]);
+        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+        $uploadOk = 1;
+        if (move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file)) {
+            $image = new Image_($target_file,$description,$title,"",$_SESSION["current_album"]);
+            $imageDAO->insert($image);
+        } else {
+        echo "Sorry, there was an error uploading your file.";
+        }
+        header("location: image.php?id_album=".$_SESSION["current_album"]);
 
     }
     elseif (isset($_POST["update"])){

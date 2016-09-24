@@ -16,9 +16,9 @@
          * @param $comments
          * @param $id_album
          */
-        public function __construct($id_image, $photo, $description, $title, $comments, $id_album)
+        public function __construct($photo, $description, $title, $comments, $id_album)
         {
-            $this->id_image = $id_image;
+
             $this->photo = $photo;
             $this->description = $description;
             $this->title = $title;

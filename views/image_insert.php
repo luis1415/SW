@@ -16,7 +16,6 @@
                 <input type="text" name=title  /><br>
                 <label name="description">Description</label>
                 <input type="text" name="description"  /><br>
-                <input type="hidden" name="id_album" value="<?= $_SESSION["current_album"] ?>"  /><br>
                 <input type="submit" value="Add Photo" name="insert" />
             </fieldset>
         </div>
