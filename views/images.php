@@ -45,10 +45,10 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#">Perfil</a>
+                    <a href="#">Profile</a>
                 </li>
                 <li>
-                    <a href="../controllers/user.php?logout">Salir</a>
+                    <a href="../controllers/user.php?logout">Logout</a>
                 </li>
             </ul>
         </div>

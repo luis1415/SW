@@ -45,10 +45,10 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#">Perfil</a>
+                    <a href="#">Profile</a>
                 </li>
                 <li>
-                    <a href="../controllers/user.php?logout">Salir</a>
+                    <a href="../controllers/user.php?logout">Logout</a>
                 </li>
             </ul>
         </div>
@@ -73,7 +73,7 @@
         foreach ($rows_albumes as $row_album) { ?>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                 <a class="thumbnail" href="../controllers/album.php?find=<?= $row_album['id'];?>">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                    <img class="img-responsive" src="http://icons.iconarchive.com/icons/grafikartes/flat-retro-modern/512/iPhoto-icon.png" width="400" height="300">
                 </a>
                 <p><h3><?= $row_album['name'];?></h3></p>
                 <p><h4><?= $row_album['description'];?></h4></p><br>
