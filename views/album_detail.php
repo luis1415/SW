@@ -13,8 +13,8 @@
                 <label name="name">Name</label>
                 <input type="text" name="name" value="<?php echo $row["name"]; ?>" /><br>
                 <label name="description">Description</label>
-                <input type="text" name="description" value="<?php echo $row["description"]; ?>" /><br>
-                <input type="hidden" name="id_album" value="<?php echo  $row["id"]; ?>" /><br>
+                <input type="text" name="description" value="<?= $row["description"]; ?>" /><br>
+                <input type="hidden" name="id_album" value="<?= $row["id"]; ?>" /><br>
                 <input type="submit" value="Save" name="update" />
             </fieldset>
         </div>

@@ -27,7 +27,16 @@ include "../dao/AlbumDAO.php";
 
     if(isset($_GET["find"])){
         if(isset($_SESSION["current_user"])){
-            $row = $albumDAO->find($_SESSION["current_user"],$_GET["find"]);
+            header("location: image.php?id_album=".$_GET["find"]);
+        }
+        else{
+            header("location: user.php?login");
+        }
+    }
+
+    if(isset($_GET["edit"])){
+        if(isset($_SESSION["current_user"])){
+            $row = $albumDAO->find($_SESSION["current_user"],$_GET["edit"]);
             include "../views/album_detail.php";
         }
         else{

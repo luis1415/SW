@@ -9,7 +9,7 @@ class  ImageDAO extends ConfigDB{
         $sql->bindParam(':id_album', $id_album);
         $sql->setFetchMode(PDO::FETCH_ASSOC);
         $sql->execute();
-        return $rows_images = $sql->fetchAll();
+        return $sql->fetchAll();
 
     }
 
@@ -18,7 +18,7 @@ class  ImageDAO extends ConfigDB{
         $sql = $this->connect()->prepare("SELECT * FROM tbl_images WHERE  id=:id_image");
         $sql->bindParam(':id_image', $id_image);
         $sql->execute();
-        return $row = $sql->fetch(PDO::FETCH_ASSOC);
+        return $sql->fetch(PDO::FETCH_ASSOC);
 
     }
 

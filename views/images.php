@@ -63,21 +63,20 @@
     <div class="row">
 
         <div class="col-lg-12">
-            <h1 class="page-header">Albumes
-                <a href="../controllers/album.php?new" type="button" class="btn btn-primary" >New Album</a>
+            <h1 class="page-header">Photos
+                <a href="../controllers/image.php?new=<?= $_GET["id_abum"];?>" type="button" class="btn btn-primary" >Add Photo</a>
             </h1>
 
         </div>
 
         <?php
-        foreach ($rows_albumes as $row_album) { ?>
+        foreach ($rows_images as $row_image) { ?>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="../controllers/album.php?find=<?= $row_album['id'];?>">
+                <a class="thumbnail" href="../controllers/image.php?find=<?= $row_image['id'];?>">
                     <img class="img-responsive" src="http://placehold.it/400x300" alt="">
                 </a>
-                <p><h3><?= $row_album['name'];?></h3></p>
-                <p><h4><?= $row_album['description'];?></h4></p><br>
-                <a href="../controllers/album.php?edit=<?= $row_album['id'];?>" type="button" class="btn btn-primary" >Edit Album</a>
+                <p><h3><?= $row_image['title'];?></h3></p>
+                <p><h4><?= $row_image['description'];?></h4></p><br>
             </div>
 
         <?php }
