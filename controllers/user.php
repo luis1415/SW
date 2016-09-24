@@ -1,5 +1,7 @@
 <?php
 include "../dao/UserDAO.php";
+    ob_start();
+    session_start();
     $name = $_POST["name"];
     $nickname = $_POST["nickname"];
     $password = $_POST["password"];
@@ -11,6 +13,7 @@ include "../dao/UserDAO.php";
         if(!empty($nickname) && !empty($password)){
 
             if($userDAO->login($nickname,$password)){
+
                 header("location: ../views/home.html");
             }
             else{

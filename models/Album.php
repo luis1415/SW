@@ -12,9 +12,8 @@
          * @param $description
          * @param $id_user
          */
-        public function __construct($id_album, $name, $description, $id_user)
+        public function __construct($name, $description, $id_user)
         {
-            $this->id_album = $id_album;
             $this->name = $name;
             $this->description = $description;
             $this->id_user = $id_user;

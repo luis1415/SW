@@ -16,7 +16,7 @@
 
                 if($count > 0){
 
-                    echo "ok";
+                    $_SESSION["current_user"] = $row["id"];
                     return true;
                     }
                     else{
@@ -48,7 +48,9 @@
                     $sql_insert->bindParam(':avatar', $avatar);
                     $sql_insert->execute();
 
-                    echo "registrado exitomasamente";
+
+
+
                     return true;
 
                 }

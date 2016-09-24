@@ -9,7 +9,7 @@ include "../models/Album.php";
             $sql->bindParam(':id_user', $id_user);
             $sql->setFetchMode(PDO::FETCH_ASSOC);
             $sql->execute();
-            return $rows_albumes = $sql->fetchAll();
+            return $sql->fetchAll();
 
         }
 
