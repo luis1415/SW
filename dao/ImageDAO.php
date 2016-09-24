@@ -39,8 +39,7 @@ class  ImageDAO extends ConfigDB{
 
     public function update(Image_ $image,$id_image){
 
-        $sql = $this->connect()->prepare("UPDATE  tbl_images SET photo = :photo, description = :description, title = :title, comments =:comments, id_album =:id_album WHERE id=:id;");
-        $sql->bindParam(':photo', $image->getPhoto());
+        $sql = $this->connect()->prepare("UPDATE  tbl_images SET  description = :description, title = :title, comments =:comments, id_album =:id_album WHERE id=:id;");
         $sql->bindParam(':description', $image->getDescription());
         $sql->bindParam(':title', $image->getTitle());
         $sql->bindParam(':comments', $image->getComments());

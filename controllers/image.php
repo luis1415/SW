@@ -26,19 +26,17 @@ include "../dao/ImageDAO.php";
         }
     }
 
-    /**
-
-    if(isset($_GET["find"])){
+    if(isset($_GET["edit"])){
         if(isset($_SESSION["current_user"])){
-            $row = $albumDAO->find($_SESSION["current_user"],$_GET["find"]);
-            include "../views/album_detail.php";
+            $row = $imageDAO->find($_GET["edit"]);
+            include "../views/image_detail.php";
         }
         else{
             header("location: user.php?login");
         }
     }
-     *
-     * */
+
+
 
 
 
@@ -59,11 +57,11 @@ include "../dao/ImageDAO.php";
 
     }
     elseif (isset($_POST["update"])){
-        $name = $_POST["name"];
+        $title = $_POST["title"];
         $description = $_POST["description"];
-        $id_album = $_POST["id_album"];
+        $id_image = $_POST["id_image"];
         $id_user = $_SESSION["current_user"];
-        $album = new Album($name,$description,$id_user);
-        $albumDAO->update($album,$id_album);
-        header("location: album.php?data");
+        $image = new Image_("", $description, $title, "", $_SESSION["current_album"]);
+        $imageDAO->update($image, $id_image);
+        header("location: image.php?id_album=".$_SESSION["current_album"]);
     }

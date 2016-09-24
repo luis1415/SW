@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
+    <meta charset="UTF-8">
+    <title>albumes</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Thumbnail Gallery - Start Bootstrap Template</title>
-
     <!-- Bootstrap Core CSS -->
     <link href="../stylesheets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../stylesheets/css/signin.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="../stylesheets/css/thumbnail-gallery.css" rel="stylesheet">
@@ -23,9 +22,7 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
 </head>
-
 <body>
 
 <!-- Navigation -->
@@ -57,56 +54,25 @@
     <!-- /.container -->
 </nav>
 
-<!-- Page Content -->
-<div class="container">
+<div class="form-signin">
+    <form method="post" action="../controllers/image.php">
 
-    <div class="row">
+        <div class="arrow-up"></div>
+        <div class="formholder">
+            <div class="randompad">
+                <fieldset>
+                    <label name="title">Name</label>
+                    <input type="text" name="title" value="<?php echo $row["title"]; ?>" class="form-control" /><br>
+                    <label name="description">Description</label>
+                    <input type="text" name="description" value="<?= $row["description"]; ?>" class="form-control" /><br>
+                    <input type="hidden" name="id_image" value="<?= $row["id"]; ?>" class="form-control" /><br>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" value="save" name="update" >Update</button>
 
-        <div class="col-lg-12">
-            <h1 class="page-header">Photos
-                <a href="../controllers/image.php?new" type="button" class="btn btn-primary" >Add Photo</a>
-            </h1>
-
-        </div>
-
-        <?php
-        foreach ($rows_images as $row_image) { ?>
-            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <!--<a class="thumbnail" href="../controllers/image.php?find=<//?= $row_image['id'];?>">-->
-                    <img class="img-responsive" src="<?= $row_image['photo'];?>" alt="" width="400" height="300">
-               <!-- </a>-->
-                <p><h3><?= $row_image['title'];?></h3></p>
-                <p><h4><?= $row_image['description'];?></h4></p><br>
-                <a href="../controllers/image.php?edit=<?= $row_image['id'];?>" type="button" class="btn btn-primary" >Edit Photo</a>            </div>
-
-        <?php }
-
-        ?>
-
-
-
-    </div>
-
-    <hr>
-
-    <!-- Footer -->
-    <footer>
-        <div class="row">
-            <div class="col-lg-12">
-                <p>Copyright &copy; 2016</p>
+                </fieldset>
             </div>
         </div>
-    </footer>
-
+    </form>
 </div>
-<!-- /.container -->
-
-<!-- jQuery -->
-<script src="../stylesheets/js/jquery.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="../stylesheets/js/bootstrap.min.js"></script>
 
 </body>
-
 </html>
