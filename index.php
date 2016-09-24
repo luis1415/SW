@@ -1,2 +1,2 @@
 <?php
-echo "hola";
+    header("location: controllers/user.php?login");

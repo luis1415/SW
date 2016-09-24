@@ -10,11 +10,11 @@
     <div class="formholder">
         <div class="randompad">
             <fieldset>
-                <label name="nickname">Name</label>
+                <label name="name">Name</label>
                 <input type="text" name="name"  /><br>
-                <label name="nickname">Description</label>
+                <label name="description">Description</label>
                 <input type="text" name="description"  /><br>
-                <input type="submit" value="Añadir Album" name="insert" />
+                <input type="submit" value="Add Album" name="insert" />
             </fieldset>
         </div>
     </div>

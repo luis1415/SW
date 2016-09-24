@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+
+    <title>Thumbnail Gallery - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../stylesheets/css/bootstrap.min.css" rel="stylesheet">
@@ -19,11 +23,11 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <meta charset="UTF-8">
-    <title>register</title>
-    <link href="../stylesheets/css/signin.css" rel="stylesheet">
+
 </head>
+
 <body>
+
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
@@ -35,18 +39,17 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="../controllers/user.php?login">Photo Album</a>
+            <a class="navbar-brand" href="../controllers/album.php">Photo Album</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="../controllers/user.php?login">Login</a>
+                    <a href="#">Perfil</a>
                 </li>
                 <li>
-                    <a href="../controllers/user.php?register">Register</a>
+                    <a href="../controllers/user.php?logout">Salir</a>
                 </li>
-
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -54,23 +57,56 @@
     <!-- /.container -->
 </nav>
 
-<form class="form-signin" method="post" action="../controllers/user.php">
-    <div class="arrow-up"></div>
-    <div class="formholder">
-        <div class="container-fluid">
-            <h2 class="form-signin-heading">Register </h2>
-            <label name="name" class="sr-only">Name</label>
-            <input type="text" name="name" placeholder="Name"  class="form-control"/><br>
-            <label name="nickname" class="sr-only">Nickname</label>
-            <input type="text" name="nickname" placeholder="NickName"  class="form-control"/><br>
-            <label name="password" class="sr-only">Password</label>
-            <input type="password" name="password" placeholder="Password"  class="form-control"/><br>
-            <label name="password2" class="sr-only">Confirm Password</label>
-            <input type="password" name="password2" placeholder="Confirm Password" class="form-control"/>
-            <button class="btn btn-lg btn-primary btn-block" type="submit" value="Register" name="register" >Register</button>
+<!-- Page Content -->
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-12">
+            <h1 class="page-header">Albumes
+                <a href="../controllers/album.php?new" type="button" class="btn btn-primary" >New Album</a>
+            </h1>
 
         </div>
+
+        <?php
+        foreach ($rows_albumes as $row_album) { ?>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="../controllers/album.php?find=<?= $row_album['id'];?>">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+                <p><h3><?php echo $row_album['name'];?></h3></p>
+                <p><h4><?php echo $row_album['description'];?></h4></p><br>
+            </div>
+
+        <?php }
+
+        ?>
+
+
+
     </div>
-</form>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; 2016</p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+<!-- /.container -->
+
+<!-- jQuery -->
+<script src="../stylesheets/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../stylesheets/js/bootstrap.min.js"></script>
+
 </body>
+
 </html>

@@ -17,9 +17,9 @@ include "../models/Album.php";
 
             $sql = $this->connect()->prepare("SELECT * FROM tbl_albumes WHERE id_user=:id_user AND id=:id_album");
             $sql->bindParam(':id_user', $id_user);
-            $sql->bindParam(':id', $id_album);
+            $sql->bindParam(':id_album', $id_album);
             $sql->execute();
-            return $row = $sql->fetch(PDO::FETCH_ASSOC);
+            return $sql->fetch(PDO::FETCH_ASSOC);
 
         }
 
