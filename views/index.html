@@ -1,47 +1,94 @@
 <!DOCTYPE html>
 <html >
   <head>
-    <meta charset="UTF-8">
-    <title>SW</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        <link rel="stylesheet" href="../stylesheets/css/style.css">
+    <!-- Bootstrap Core CSS -->
+    <link href="../stylesheets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../stylesheets/css/thumbnail-gallery.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link href="../stylesheets/css/signin.css" rel="stylesheet">
 
     
   </head>
 
   <body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Photo Album</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="index.html">Login</a>
+          </li>
+          <li>
+            <a href="register.html">Register</a>
+          </li>
+          <li>
+            <a href="#">Album</a>
+          </li>
+          <li>
+            <a href="#">Perfil</a>
+          </li>
+          <li>
+            <a href="index.html">Salir</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+  </nav>
 
-    <div id="wrap">
-  <div id="regbar">
-    <div id="navthing">
-      <h2><a href="#" id="loginform">Login</a> | <a href="register.html">Register</a></h2>
-
-    <div class="login">
+    <div class="form-signin">
       <form method="post" action="../controllers/user.php">
         <div class="arrow-up"></div>
         <div class="formholder">
           <div class="randompad">
             <fieldset>
+              <h2 class="form-signin-heading">Login </h2>
               <label name="nickname">Nickname</label>
-              <input type="text" name="nickname"  /><br>
+              <input type="text" name="nickname"  class="form-control" placeholder="Nickname"/><br>
               <label name="password">Password</label>
-              <input type="password" name="password" />
-              <input type="submit" value="Login" name="login" />
+              <input type="password" name="password" class="form-control" placeholder="Password"/>
+              <button class="btn btn-lg btn-primary btn-block" type="submit" value="Login" name="login" >Ingresar</button>
             </fieldset>
           </div>
         </div>
       </form>
     </div>
 
-    </div>
-  </div>
-</div>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
         <script src="../stylesheets/js/index.js"></script>
 
-    
-    
+
+
     
   </body>
 </html>
