@@ -64,7 +64,7 @@
 
         <div class="col-lg-12">
             <h1 class="page-header">Photos
-                <a href="../controllers/image.php?new=<?= $_GET["id_abum"];?>" type="button" class="btn btn-primary" >Add Photo</a>
+                <a href="../controllers/image.php?new" type="button" class="btn btn-primary" >Add Photo</a>
             </h1>
 
         </div>

@@ -9,6 +9,7 @@ include "../dao/ImageDAO.php";
     if(isset($_GET["id_album"])){
         if(isset($_SESSION["current_user"])){
             $rows_images = $imageDAO->fecthData($_GET["id_album"]);
+            $_SESSION["current_album"] = $_GET["id_album"];
             include "../views/images.php";
         }
         else{
