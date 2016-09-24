@@ -36,7 +36,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="../controllers/album.php">Photo Album</a>
+            <a class="navbar-brand" href="../controllers/album.php?data">Photo Album</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -67,7 +67,7 @@
                 <label name="description">Description</label>
                 <input type="text" name="description"  class="form-control"/><br>
                 <input type="hidden" name="id_album" value="<?= $_SESSION["current_album"] ?>"  class="form-control"/><br>
-                <button class="btn btn-lg btn-primary btn-block" type="submit" value="Add Photo" name="insert" >Insert</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit" value="Add Photo" name="insert" >Add Photo</button>
             </fieldset>
         </div>
     </div>
