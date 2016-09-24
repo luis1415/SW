@@ -25,7 +25,7 @@ class  ImageDAO extends ConfigDB{
     public function insert(Image_ $image){
 
         $sql = $this->connect()->prepare("INSERT INTO tbl_images (photo, description, title, comments, id_album)
-                                          VALUES (:photo, : description,  :title, :comments, :id_album)");
+                                          VALUES (:photo, :description,  :title, :comments, :id_album)");
         $sql->bindParam(':photo', $image->getPhoto());
         $sql->bindParam(':description', $image->getDescription());
         $sql->bindParam(':title', $image->getTitle());

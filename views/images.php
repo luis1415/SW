@@ -73,7 +73,7 @@
         foreach ($rows_images as $row_image) { ?>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                 <a class="thumbnail" href="../controllers/image.php?find=<?= $row_image['id'];?>">
-                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                    <img class="img-responsive" src="<?= $row_image['photo'];?>" alt="" width="400" height="300">
                 </a>
                 <p><h3><?= $row_image['title'];?></h3></p>
                 <p><h4><?= $row_image['description'];?></h4></p><br>
