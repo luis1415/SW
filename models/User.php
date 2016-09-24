@@ -6,6 +6,8 @@ class User{
     private $nickname;
     private $avatar;
 
+
+
     public function __construct($id_user, $id_person, $nickname, $avatar)
     {
         $this->id_user = $id_user;

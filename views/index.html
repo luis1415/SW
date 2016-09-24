@@ -21,19 +21,20 @@
     <div id="navthing">
       <h2><a href="#" id="loginform">Login</a> | <a href="#">Register</a></h2>
     <div class="login">
+      <form method="post" action="../controllers/user.php">
       <div class="arrow-up"></div>
       <div class="formholder">
         <div class="randompad">
            <fieldset>
-             <label name="email">Email</label>
-             <input type="email" value="example@example.com" />
+             <label name="nickname">Nickname</label>
+             <input type="text" name="nickname"  /><br>
              <label name="password">Password</label>
-             <input type="password" />
+             <input type="password" name="password" />
              <input type="submit" value="Login" />
- 
            </fieldset>
         </div>
       </div>
+      </form>
     </div>
     </div>
   </div>
