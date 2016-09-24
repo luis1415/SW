@@ -1,5 +1,7 @@
 <?php
-    include "../config/ConfigDB.php";
+    include_once "../config/ConfigDB.php";
+    include "../models/User.php";
+    include "PersonDAO.php";
     class  UserDAO extends ConfigDB{
 
         public function login($nickname, $password){
@@ -30,11 +32,13 @@
             return false;
         }
 
-        public function register($nickname, $password, $password2){
+        public function register($name,$nickname, $password, $password2){
             try
             {
                 if($password2 == $password){
-                    $id_person = 1;
+                    $person = new Person($name);
+                    $personDao = new PersonDAO();
+                    $id_person = $personDao->insert($person);
                     $avatar = "nulo";
                     $sql_insert = $this->connect()->prepare("INSERT INTO tbl_users (id_person, nickname, password, avatar)
                                           VALUES (:id_person, :nickname, :password, :avatar)");

@@ -1,5 +1,6 @@
 <?php
-include "../config/ConfigDB.php";
+include_once "../config/ConfigDB.php";
+include "../models/Image_.php";
 class  ImageDAO extends ConfigDB{
 
     public function fecthData($id_album){

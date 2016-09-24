@@ -1,6 +1,6 @@
 <?php
 include "../dao/UserDAO.php";
-
+    $name = $_POST["name"];
     $nickname = $_POST["nickname"];
     $password = $_POST["password"];
     $password2 = $_POST["password2"];
@@ -20,9 +20,9 @@ include "../dao/UserDAO.php";
         }
     }
     else if(isset($_POST["register"])){
-        if(!empty($nickname) && !empty($password) && !empty($password2)){
+        if(!empty($name) && !empty($nickname) && !empty($password) && !empty($password2)){
 
-            if($userDAO->register($nickname,$password,$password2)){
+            if($userDAO->register($name,$nickname,$password,$password2)){
                 header("location: ../views/home.html");
             }
             else{

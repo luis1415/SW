@@ -1,5 +1,6 @@
 <?php
-include "../config/ConfigDB.php";
+include_once "../config/ConfigDB.php";
+include "../models/Album.php";
     class  AlbumDAO extends ConfigDB{
 
         public function fecthData($id_user){

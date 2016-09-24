@@ -4,9 +4,9 @@ class Person{
     private $id_person;
     private $name;
 
-    public function __construct($id_person, $name)
+    public function __construct($name)
     {
-        $this->id_person = $id_person;
+
         $this->name = $name;
     }
 
