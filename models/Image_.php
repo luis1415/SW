@@ -5,7 +5,6 @@
         private $description;
         private $title;
         private $comments;
-        private $id_album;
 
         /**
          * Image_ constructor.
@@ -14,16 +13,14 @@
          * @param $description
          * @param $title
          * @param $comments
-         * @param $id_album
          */
-        public function __construct($photo, $description, $title, $comments, $id_album)
+        public function __construct($photo, $description, $title, $comments)
         {
 
             $this->photo = $photo;
             $this->description = $description;
             $this->title = $title;
             $this->comments = $comments;
-            $this->id_album = $id_album;
         }
 
         /**
@@ -105,26 +102,5 @@
         {
             $this->comments = array();
         }
-
-        /**
-         * @return mixed
-         */
-        public function getIdAlbum()
-        {
-            return $this->id_album;
-        }
-
-        /**
-         * @param mixed $id_album
-         */
-        public function setIdAlbum($id_album)
-        {
-            $this->id_album = $id_album;
-        }
-
-
-
-
-
 
     }

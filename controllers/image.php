@@ -48,8 +48,8 @@ include "../dao/ImageDAO.php";
         $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
         $uploadOk = 1;
         if (move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file)) {
-            $image = new Image_($target_file,$description,$title,"",$_SESSION["current_album"]);
-            $imageDAO->insert($image);
+            $image = new Image_($target_file,$description,$title,"");
+            $imageDAO->insert($image, $_SESSION["current_album"]);
         } else {
         echo "Sorry, there was an error uploading your file.";
         }
