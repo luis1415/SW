@@ -22,6 +22,7 @@ class  ImageDAO extends ConfigDB{
 
     }
 
+
     public function insert(Image_ $image, $orden){
 
         $st = $this->connect();

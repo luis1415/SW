@@ -17,6 +17,7 @@
                 if($count > 0){
 
                     $_SESSION["current_user"] = $row["id"];
+                    $_SESSION["role"] = $row["role"];
                     return true;
                     }
                     else{

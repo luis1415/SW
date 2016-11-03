@@ -36,10 +36,6 @@ include "../dao/ImageDAO.php";
         }
     }
 
-
-
-
-
     if(isset($_POST["insert"])){
         $title = $_POST["title"];
         $description = $_POST["description"];

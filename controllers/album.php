@@ -9,6 +9,7 @@ include "../dao/AlbumDAO.php";
     if(isset($_GET["data"])){
         if(isset($_SESSION["current_user"])){
             $rows_albumes = $albumDAO->fecthData($_SESSION["current_user"]);
+            $rows_albumes2 = $albumDAO->fetchDataAll($_SESSION["current_user"],$_SESSION["role"]);
             include "../views/home.php";
         }
         else{

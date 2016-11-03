@@ -65,7 +65,7 @@
 
         <div class="col-lg-12">
             <h1 class="page-header">Albumes
-                <a href="../controllers/album.php?new" type="button" class="btn btn-primary" >New Album</a>
+                <a href="../controllers/album.php?new" type="button" class="btn btn-primary">New Album</a>
             </h1>
 
         </div>
@@ -73,12 +73,16 @@
         <?php
         foreach ($rows_albumes as $row_album) { ?>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <a class="thumbnail" href="../controllers/album.php?find=<?= $row_album['id'];?>">
-                    <img class="img-responsive" src="http://icons.iconarchive.com/icons/grafikartes/flat-retro-modern/512/iPhoto-icon.png" width="400" height="300">
+                <a class="thumbnail" href="../controllers/album.php?find=<?= $row_album['id']; ?>">
+                    <img class="img-responsive"
+                         src="http://icons.iconarchive.com/icons/grafikartes/flat-retro-modern/512/iPhoto-icon.png"
+                         width="400" height="300">
                 </a>
-                <p><h3><?= $row_album['name'];?></h3></p>
-                <p><h4><?= $row_album['description'];?></h4></p><br>
-                <a href="../controllers/album.php?edit=<?= $row_album['id'];?>" type="button" class="btn btn-primary" >Edit Album</a>
+                <p>
+                <h3><?= $row_album['name']; ?></h3></p>
+                <p><h4><?= $row_album['description']; ?></h4></p><br>
+                <a href="../controllers/album.php?edit=<?= $row_album['id']; ?>" type="button" class="btn btn-primary">Edit
+                    Album</a>
             </div>
 
         <?php }
@@ -86,10 +90,39 @@
         ?>
 
 
-
     </div>
 
     <hr>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">Albumes
+                    <a href="../controllers/album.php?new" type="button" class="btn btn-primary" >New Album</a>
+                </h1>
+
+            </div>
+            <?php
+            foreach ($rows_albumes2 as $row_album2) { ?>
+                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                    <a class="thumbnail" href="../controllers/album.php?find=<?= $row_album2['id'];?>">
+                        <img class="img-responsive" src="http://icons.iconarchive.com/icons/grafikartes/flat-retro-modern/512/iPhoto-icon.png" width="400" height="300">
+                    </a>
+                    <p><h3><?= $row_album2['name'];?></h3></p>
+                    <p><h4><?= $row_album2['description'];?></h4></p><br>
+                    <a href="../controllers/album.php?edit=<?= $row_album2['id'];?>" type="button" class="btn btn-primary" >Edit Album</a>
+                </div>
+
+            <?php }
+
+            ?>
+
+
+
+        </div>
+
 
     <!-- Footer -->
     <footer>

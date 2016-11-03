@@ -68,6 +68,7 @@
                 <input type="hidden" name="id_album" value="<?= $row["id"]; ?>" class="form-control" /><br>
                 <button class="btn btn-lg btn-primary btn-block" type="submit" value="save" name="update" >Update</button>
             </fieldset>
+
         </div>
     </div>
 </form>

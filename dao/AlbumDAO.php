@@ -23,6 +23,17 @@ include "../models/Album.php";
 
         }
 
+        public function fetchDataAll($id_user, $role){
+
+            $sql = $this->connect()->prepare("SELECT * FROM tbl_albumes INNER JOIN tbl_users ON tbl_users.id = tbl_albumes.id_user WHERE role = :role AND id_user!= :id_user");
+            $sql->bindParam(':id_user', $id_user);
+            $sql->bindParam(':role', $role);
+            $sql->setFetchMode(PDO::FETCH_ASSOC);
+            $sql->execute();
+            return  $sql->fetchAll();
+
+        }
+
         public function insert(Album $album){
 
             $sql = $this->connect()->prepare("INSERT INTO tbl_albumes (name, description, id_user)
