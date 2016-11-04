@@ -5,7 +5,14 @@ include "../dao/ImageDAO.php";
     session_start();
     $imageDAO = new imageDAO();
 
+    class contr_image{
+        function drop_image(){
+            $imageDAO = new imageDAO();
+            $row = $imageDAO->drop_images();
+            return $row;
+        }
 
+    }
     if(isset($_GET["id_album"])){
         if(isset($_SESSION["current_user"])){
             $rows_images = $imageDAO->fecthData($_GET["id_album"]);
@@ -38,6 +45,15 @@ include "../dao/ImageDAO.php";
 
     if(isset($_POST["insert"])){
         $title = $_POST["title"];
+        if(isset($_POST["id"])){
+            $row = $imageDAO->find2($_POST["id"]);
+            //var_dump($row);
+            $photo = $row[0]["photo"];
+            $description = $row[0]["description"];
+            $image = new Image_($photo,$description,$title,"");
+            $imageDAO->insert($image, $_SESSION["current_album"]);
+        }
+
         $description = $_POST["description"];
         $target_dir = "../uploads/";
         $target_file = $target_dir . basename($_FILES["photo"]["name"]);

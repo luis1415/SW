@@ -62,6 +62,27 @@
             <fieldset>
                 <label name="title">Photo</label>
                 <input type="file" name="photo" id="photo" class="form-control"/><br>
+
+                <label name="title2">Photo In DB</label>
+
+                <select name="id" id="photo2" class="form-control">
+                    <?php
+                    echo "hola";
+                    //include("../dao/ImageDAO.php");
+                    $imagen = new ImageDAO();
+                    $lista = $imagen->drop_images();
+                    $cont = 0;
+                    var_dump($lista);
+                    while($cont < sizeof($lista)){
+                        ?>
+                        <option value="<?php echo $lista[$cont]["id"]; ?>"><?php echo $lista[$cont]["title"]; $cont+=1; ?></option>
+                        <?php
+                    }
+                    ?>
+
+
+                </select><br>
+
                 <label name="description">Title</label>
                 <input type="text" name=title  class="form-control"/><br>
                 <label name="description">Description</label>

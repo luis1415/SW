@@ -22,6 +22,15 @@ class  ImageDAO extends ConfigDB{
 
     }
 
+    public function find2($id_image){
+
+        $sql = $this->connect()->prepare("SELECT * FROM tbl_images WHERE  id=:id_image");
+        $sql->bindParam(':id_image', $id_image);
+        $sql->execute();
+        return $sql->fetchAll();
+
+    }
+
 
     public function insert(Image_ $image, $orden){
 
@@ -67,11 +76,17 @@ class  ImageDAO extends ConfigDB{
     }
 
     public function delete($id_imagee){
-
         $sql = $this->connect()->prepare("DELETE FROM tbl_image WHERE  id=:id");
         $sql->bindParam(':id', $id_image);
         $sql->execute();
         return "ok";
+
+    }
+
+    public function drop_images(){
+        $sql = $this->connect()->prepare("SELECT DISTINCT id, title FROM tbl_images");
+        $sql->execute();
+        return $sql->fetchAll();
 
     }
 
