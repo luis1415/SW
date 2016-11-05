@@ -13,6 +13,8 @@ include "../dao/ImageDAO.php";
         }
 
     }
+
+    // aqui es donde se define el current_album la varaible session
     if(isset($_GET["id_album"])){
         if(isset($_SESSION["current_user"])){
             $rows_images = $imageDAO->fecthData($_GET["id_album"]);
@@ -45,7 +47,7 @@ include "../dao/ImageDAO.php";
 
     if(isset($_POST["insert"])){
         $title = $_POST["title"];
-        if(isset($_POST["id"])){
+        if(isset($_POST["id"]) AND strcmp($title, "") == 0){
             $row = $imageDAO->find2($_POST["id"]);
             //var_dump($row);
             $photo = $row[0]["photo"];

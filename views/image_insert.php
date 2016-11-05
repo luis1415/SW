@@ -68,7 +68,7 @@
                 <select name="id" id="photo2" class="form-control">
                     <?php
                     echo "hola";
-                    //include("../dao/ImageDAO.php");
+                    //include("../controllers/image.php");
                     $imagen = new ImageDAO();
                     $lista = $imagen->drop_images();
                     $cont = 0;

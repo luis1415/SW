@@ -136,7 +136,7 @@ class  ImageDAO extends ConfigDB{
         $sql3->bindParam(':id_image', $id_image);
         $sql3->execute();
 
-        
+
         return "ok";
 
     }
