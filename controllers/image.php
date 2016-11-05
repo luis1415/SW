@@ -72,10 +72,23 @@ include "../dao/ImageDAO.php";
     if(isset($_GET["swap"])){
         $album = $_GET["album_id"];
         $imagen = $_GET["imagen_id"];
+        // el orden de la imagen actual
         $orden = $imageDAO->find3($imagen, $album);
-
         $row = $imageDAO->swaping($imagen, $album, $orden);
-        var_dump($row);
+        // swaping me devuelve el orden del que esta mas adelante que yo
+        //var_dump($row);
+        $adelante = $row[0]["orden_image"];
+        // el id de la imagen siguiente
+        $id_image_siguiente = $row[0]["fk_image"];
+        // el id del album siguiente
+        $id_album_siguiente = $row[0]["fk_album"];
+
+        $actual = $orden[0]["orden_image"];
+        var_dump($actual);
+        // ahora tengo que hacer el cambio con update_orden en la base de datos
+        $imageDAO->update_orden($actual, $adelante, $album, $imagen, $id_image_siguiente, $id_album_siguiente);
+
+        header("location: image.php?id_album=".$_SESSION["current_album"]);
     }
 
 

@@ -104,7 +104,7 @@ class  ImageDAO extends ConfigDB{
         $sql = $this->connect()->prepare("SELECT * FROM tbl_albumes_images AS ai, tbl_images i WHERE i.id = ai.fk_image AND ai.fk_album = :album
                                             AND ai.orden_image > :mi_orden
                                             ORDER BY orden_image DESC
-                                            ;");
+                                            LIMIT 1;");
         //$sql->bindParam(':id', $id_image);
         $sql->bindParam(':album', $id_album);
         $sql->bindParam(':mi_orden', $orden[0]["orden_image"]);
@@ -112,14 +112,31 @@ class  ImageDAO extends ConfigDB{
         return $sql->fetchAll();
     }
 
-    public function update_orden(Image_ $image,$id_image){
+    public function update_orden($actual, $siguiente, $id_album, $id_image, $id_image_siguiente, $id_album_siguiente){
 
-        $sql = $this->connect()->prepare("UPDATE  tbl_images SET  description = :description, title = :title, comments =:comments WHERE id=:id;");
-        $sql->bindParam(':description', $image->getDescription());
-        $sql->bindParam(':title', $image->getTitle());
-        $sql->bindParam(':comments', $image->getComments());
-        $sql->bindParam(':id', $id_image);
+        $sql = $this->connect()->prepare("UPDATE  tbl_albumes_images SET orden_image = -1 WHERE fk_album = :id_album AND fk_image = :id_image;");
+        $sql->bindParam(':id_album', $id_album);
+        $sql->bindParam(':id_image', $id_image);
         $sql->execute();
+
+        $sql4= $this->connect()->prepare("UPDATE  tbl_albumes_images SET orden_image = 0 WHERE fk_album = :id_album_siguiente AND fk_image = :id_image_siguiente;");
+        $sql4->bindParam(':id_album_siguiente', $id_album_siguiente);
+        $sql4->bindParam(':id_image_siguiente', $id_image_siguiente);
+        $sql4->execute();
+
+        $sql2 = $this->connect()->prepare("UPDATE  tbl_albumes_images SET orden_image = :actual WHERE fk_album = :id_album_siguiente AND fk_image = :id_image_siguiente;");
+        $sql2->bindParam(':actual', $actual);
+        $sql2->bindParam(':id_album_siguiente', $id_album_siguiente);
+        $sql2->bindParam(':id_image_siguiente', $id_image_siguiente);
+        $sql2->execute();
+
+        $sql3 = $this->connect()->prepare("UPDATE  tbl_albumes_images SET orden_image = :siguiente WHERE fk_album = :id_album AND fk_image = :id_image;");
+        $sql3->bindParam(':siguiente', $siguiente);
+        $sql3->bindParam(':id_album', $id_album);
+        $sql3->bindParam(':id_image', $id_image);
+        $sql3->execute();
+
+        
         return "ok";
 
     }
