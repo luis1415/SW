@@ -72,8 +72,10 @@
         <?php
         foreach ($rows_images as $row_image) { ?>
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                <!--<a class="thumbnail" href="../controllers/image.php?find=<//?= $row_image['id'];?>">-->
+                <!--aqui empieza a llamar el swap-->
+                    <a href="../controllers/image.php?swap&imagen_id=<?= $row_image['id'];?>&album_id=<?= $_SESSION["current_album"];?>"> <img class="img-responsive" src="../uploads/intercambiar.png" alt="" width="30" height="30"></a></br>
                     <img class="img-responsive" src="<?= $row_image['photo'];?>" alt="" width="400" height="300">
+
                <!-- </a>-->
                 <p><h3><?= $row_image['title'];?></h3></p>
                 <p><h4><?= $row_image['description'];?></h4></p><br>

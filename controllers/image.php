@@ -68,6 +68,17 @@ include "../dao/ImageDAO.php";
         header("location: image.php?id_album=".$_SESSION["current_album"]);
 
     }
+
+    if(isset($_GET["swap"])){
+        $album = $_GET["album_id"];
+        $imagen = $_GET["imagen_id"];
+        $orden = $imageDAO->find3($imagen, $album);
+
+        $row = $imageDAO->swaping($imagen, $album, $orden);
+        var_dump($row);
+    }
+
+
     elseif (isset($_POST["update"])){
         $title = $_POST["title"];
         $description = $_POST["description"];

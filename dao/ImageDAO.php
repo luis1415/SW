@@ -75,7 +75,7 @@ class  ImageDAO extends ConfigDB{
 
     }
 
-    public function delete($id_imagee){
+    public function delete($id_image){
         $sql = $this->connect()->prepare("DELETE FROM tbl_image WHERE  id=:id");
         $sql->bindParam(':id', $id_image);
         $sql->execute();
@@ -90,5 +90,37 @@ class  ImageDAO extends ConfigDB{
 
     }
 
+    public function find3($id_image, $id_album){
+        $sql = $this->connect()->prepare("SELECT orden_image FROM tbl_albumes_images WHERE fk_album =:album  AND fk_image= :id");
+        $sql->bindParam(':id', $id_image);
+        $sql->bindParam(':album', $id_album);
+        $sql->execute();
+        return $sql->fetchAll();
 
+    }
+
+    public function  swaping($id_image, $id_album, $orden){
+
+        $sql = $this->connect()->prepare("SELECT * FROM tbl_albumes_images AS ai, tbl_images i WHERE i.id = ai.fk_image AND ai.fk_album = :album
+                                            AND ai.orden_image > :mi_orden
+                                            ORDER BY orden_image DESC
+                                            ;");
+        //$sql->bindParam(':id', $id_image);
+        $sql->bindParam(':album', $id_album);
+        $sql->bindParam(':mi_orden', $orden[0]["orden_image"]);
+        $sql->execute();
+        return $sql->fetchAll();
+    }
+
+    public function update_orden(Image_ $image,$id_image){
+
+        $sql = $this->connect()->prepare("UPDATE  tbl_images SET  description = :description, title = :title, comments =:comments WHERE id=:id;");
+        $sql->bindParam(':description', $image->getDescription());
+        $sql->bindParam(':title', $image->getTitle());
+        $sql->bindParam(':comments', $image->getComments());
+        $sql->bindParam(':id', $id_image);
+        $sql->execute();
+        return "ok";
+
+    }
 }

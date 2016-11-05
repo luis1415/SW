@@ -99,7 +99,7 @@
         <div class="row">
 
             <div class="col-lg-12">
-                <h1 class="page-header">Albumes
+                <h1 class="page-header">Albumes of Other Users
                     <a href="../controllers/album.php?new" type="button" class="btn btn-primary" >New Album</a>
                 </h1>
 
